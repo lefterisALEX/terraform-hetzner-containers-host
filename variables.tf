@@ -88,12 +88,6 @@ variable "public_access" {
   description = "If false a firewall that block all public access will be attached to the server."
 }
 
-variable "post_init_commands" {
-  type        = list(string)
-  default     = []
-  description = "A set of commands to be executed everytime terraform runs."
-}
-
 variable "infisical_client_id" {
   type        = string
   sensitive   = true
@@ -119,3 +113,24 @@ variable "enable_infisical" {
   default     = false
   description = "Set to true to enable accessing secrets from infisical."
 }
+
+variable "github_token" {
+  type        = string
+  sensitive   = true
+  default     = ""
+  description = "The GitHub token for accessing private repositories."
+}
+
+variable "github_repo_url" {
+  type        = string
+  default     = ""
+  description = "The URL of the applications repository."
+}
+
+variable "apps_directory" {
+  type        = string
+  default     = "examples/basic/apps"
+  description = "The local directory where the applications repository will be cloned."
+}
+
+
